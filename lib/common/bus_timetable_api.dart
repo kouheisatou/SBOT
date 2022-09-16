@@ -28,15 +28,14 @@ class TimetableType {
 }
 
 class Timetable {
-  late Map<String, List<String>> timetable;
-  late String title;
+  Map<String, List<String>> timetable = {};
+  String title = "";
 
   Future<void> fetchOperationTimetable(
     int timetableSeason,
     String timetableType,
     Function(Timetable timetable) onFinished,
   ) async {
-    timetable = {};
     final response = await http.get(
       Uri.parse("http://bus.shibaura-it.ac.jp/db/bus_data.json"),
     );
